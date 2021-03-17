@@ -788,14 +788,13 @@ class WP_REST_Attachments_Controller extends WP_REST_Posts_Controller {
 			} else {
 				$data['media_details']['sizes'] = new stdClass;
 			}
-			
+
 			if ( ! isset( $data['media_details']['filesize'] ) ) {
 				$attached_file = get_attached_file( $post->ID );
 				if ( is_readable( $attached_file ) ) {
 					$data['media_details']['filesize'] = filesize( $attached_file );
 				}
 			}
-			
 		}
 
 		if ( in_array( 'post', $fields, true ) ) {
